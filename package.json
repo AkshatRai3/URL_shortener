@@ -1,0 +1,27 @@
+{
+  "name": "url_shortener",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/AkshatRai3/URL_shortener#readme",
+  "bugs": {
+    "url": "https://github.com/AkshatRai3/URL_shortener/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkshatRai3/URL_shortener.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.15.0",
+    "nanoid": "^5.1.5",
+    "nodemon": "^3.1.10",
+    "shortid": "^2.2.17"
+  }
+}
