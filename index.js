@@ -13,6 +13,21 @@ app.use(express.json());
     
    });
 
+   app.get('/test', async (req, res) =>{
+    const allUrls = await URL.find({});
+
+    return res.end(`
+        <html>
+            <head></head>
+            <body>
+                <ol>
+                    ${allUrls.map(url => `<li> ${url.shortId} - ${url.redirectURL} - ${url.visitHistory.length} </li>`).join('<br>')}
+                </ol> 
+            </body>    
+        </html>
+        `);
+   })
+
    app.use( '/url', urlRouter);
 
    app.get('/:shortId', async(req, res)=>{
