@@ -1,11 +1,13 @@
  const express = require('express')
+ const path = require('path');
  const urlRouter = require('./routes/url')
  const app = express();  
   const URL = require('./models/url')
  const {connectMongoDB} = require('./connection/connect')
  const PORT = 3000;
-
+ const StaticRoute = require('./routes/StaticRouter');
 app.use(express.json());
+app.use(express.urlencoded({extended:false}))
   
 
    connectMongoDB("mongodb://127.0.0.1:27017/short-url").then(() =>{
@@ -13,24 +15,14 @@ app.use(express.json());
     
    });
 
-   app.get('/test', async (req, res) =>{
-    const allUrls = await URL.find({});
-
-    return res.end(`
-        <html>
-            <head></head>
-            <body>
-                <ol>
-                    ${allUrls.map(url => `<li> ${url.shortId} - ${url.redirectURL} - ${url.visitHistory.length} </li>`).join('<br>')}
-                </ol> 
-            </body>    
-        </html>
-        `);
-   })
-
+   app.set(' view engine', 'ejs');
+   app.set('views',path.resolve('./views') )
+  
    app.use( '/url', urlRouter);
 
-   app.get('/:shortId', async(req, res)=>{
+   app.use('/', StaticRoute); 
+
+   app.get('/url/:shortId', async(req, res)=>{
     const shortId = req.params.shortId; 
     const entry = await URL.findOneAndUpdate(
         {shortId},
