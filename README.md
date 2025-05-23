@@ -22,3 +22,7 @@ Work flow:
  b. Doing basic styling to keep it simple and basic
  c. Will try to first make the design on figma
  d. Then make the React part
+
+*3. Plan change:*
+ a. Doing frontend in EJS(server side rendering)
+ b. Now only styling is left
