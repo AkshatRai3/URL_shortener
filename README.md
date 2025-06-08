@@ -26,3 +26,5 @@ Work flow:
 *3. Plan change:*
  a. Doing frontend in EJS(server side rendering)
  b. Now only styling is left
+
+ #commit check
