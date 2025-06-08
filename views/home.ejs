@@ -32,8 +32,8 @@
 </head>
 <body>
      <h1 id="heading">URL Shortener</h1>
-     <% if (locals.id) { %>
-        <p>URL Generated : http://localhost:3000/url/<%=id%></p>
+     <% if (locals.id)  { %>
+        <p>URL Generated : <a href="http://localhost:3000/url/<%=id%>">http://localhost:3000/url/<%=id%></a></p>
      <% } %>
      <div>
         <form action="/url" method="post">
@@ -56,7 +56,7 @@
                     <% urls.forEach((url,index) => { %>
                      <tr>
                         <td><%= index +1 %></td>
-                        <td><a href="" >http://localhost:3000/url/<%= url.shortId %></a></td>
+                        <td><a href="http://localhost:3000/url/<%= url.shortId %>" >http://localhost:3000/url/<%= url.shortId %></a></td>
                         <td><a href=<%= url.redirectURL%>><%= url.redirectURL%></a></td>
                         <td><%= url.visitHistory.length %></td>
                      </tr>
